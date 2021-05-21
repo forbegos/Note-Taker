@@ -36,9 +36,9 @@ app.post("/api/notes", (req, res) => {
 
 app.delete("/api/notes/:id", (req, res) => {
   const delId = req.params.id;
-  for (const i = 0; i < db.length; i++) {
+  for (var i = 0; i < db.length; i++) {
     if (db[i].id === delId) {
-      arr.splice(i, 1);
+      db.splice(i, 1);
     }
   }
   res.json(db);
