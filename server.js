@@ -14,12 +14,7 @@ app.use(express.static(__dirname));
 
 // Array of Notes
 
-const db = [
-  {
-    title: "TEST TITLE",
-    text: "Test body of note",
-  },
-];
+const db = [];
 
 // Routes
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "/index.html")));

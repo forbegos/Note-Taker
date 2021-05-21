@@ -55,13 +55,12 @@ const renderActiveNote = () => {
   // console.log("active note");
   console.log(activeNote);
 
-  if (activeNote) {
+  if (activeNote.id) {
     noteTitle.setAttribute("readonly", true);
     noteText.setAttribute("readonly", true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
   } else {
-    // - error here, never executes!  why?
     noteTitle.removeAttribute("readonly");
     noteText.removeAttribute("readonly");
     noteTitle.value = "";
