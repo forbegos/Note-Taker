@@ -2,6 +2,7 @@
 
 const express = require("express");
 const path = require("path");
+const uniqid = require("uniqid");
 
 // Setup App
 const app = express();
@@ -27,15 +28,19 @@ app.get("/api/notes", (req, res) => res.json(db));
 
 app.post("/api/notes", (req, res) => {
   const newNote = req.body;
+  newNote.id = uniqid();
   // add new note to db.json
   db.push(newNote);
   res.json(db);
 });
 
 app.delete("/api/notes/:id", (req, res) => {
-  const delNote = req.params.id;
-  // remove note with index 'id' from db.json
-  db.splice(delNote, 1);
+  const delId = req.params.id;
+  db.forEach((element) => {
+    if ((element.id = delId)) {
+      db.splice(db.indexOf(element.id), 1);
+    }
+  });
   res.json(db);
 });
 
