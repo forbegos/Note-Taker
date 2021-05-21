@@ -37,7 +37,7 @@ app.post("/api/notes", (req, res) => {
 app.delete("/api/notes/:id", (req, res) => {
   const delId = req.params.id;
   db.forEach((element) => {
-    if ((element.id = delId)) {
+    if (element.id === delId) {
       db.splice(db.indexOf(element.id), 1);
     }
   });
