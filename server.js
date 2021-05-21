@@ -36,11 +36,11 @@ app.post("/api/notes", (req, res) => {
 
 app.delete("/api/notes/:id", (req, res) => {
   const delId = req.params.id;
-  db.forEach((element) => {
-    if (element.id === delId) {
-      db.splice(db.indexOf(element.id), 1);
+  for (const i = 0; i < db.length; i++) {
+    if (db[i].id === delId) {
+      arr.splice(i, 1);
     }
-  });
+  }
   res.json(db);
 });
 
